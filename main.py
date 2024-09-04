@@ -5,18 +5,18 @@ import random
 # define main funciton that handles all the logic
 def main():
     # define the game choices
-    choices = ['rock', 'paper', 'scissors', 'spock']
-    # define the winning conditions for spock
+    choices = ['rock', 'paper', 'scissors', 'spock', 'lizard']
     winning_conditions = {
-        'rock': ['scissors'],
-        'scissors': ['paper'],
-        'paper': ['rock'],
-        'spock': ['rock', 'scissors']
+        'rock': ['scissors', 'lizard'],
+        'scissors': ['paper', 'lizard', 'rock'],
+        'paper': ['rock', 'spock'],
+        'spock': ['rock', 'scissors'],
+        'lizard': ['paper', 'spock']
     }
     # define the game loop using winning_condittions
     while True:
         # get the user choice
-        user_choice = input('Choose rock, paper, scissors, or spock: ')
+        user_choice = input('Choose rock, paper, scissors, spock, or lizard: ')
         # get the computer choice
         computer_choice = random.choice(choices)
         # print the choices
