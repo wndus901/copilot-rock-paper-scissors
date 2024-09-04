@@ -5,11 +5,18 @@ import random
 # define main funciton that handles all the logic
 def main():
     # define the game choices
-    choices = ['rock', 'paper', 'scissors']
-    # define the game loop
+    choices = ['rock', 'paper', 'scissors', 'spock']
+    # define the winning conditions for spock
+    winning_conditions = {
+        'rock': ['scissors'],
+        'scissors': ['paper'],
+        'paper': ['rock'],
+        'spock': ['rock', 'scissors']
+    }
+    # define the game loop using winning_condittions
     while True:
         # get the user choice
-        user_choice = input('Choose rock, paper, or scissors: ')
+        user_choice = input('Choose rock, paper, scissors, or spock: ')
         # get the computer choice
         computer_choice = random.choice(choices)
         # print the choices
@@ -17,11 +24,7 @@ def main():
         # determine the winner
         if user_choice == computer_choice:
             print('It\'s a tie!')
-        elif user_choice == 'rock' and computer_choice == 'scissors':
-            print('You win!')
-        elif user_choice == 'paper' and computer_choice == 'rock':
-            print('You win!')
-        elif user_choice == 'scissors' and computer_choice == 'paper':
+        elif computer_choice in winning_conditions[user_choice]:
             print('You win!')
         else:
             print('Computer wins!')
@@ -29,6 +32,7 @@ def main():
         play_again = input('Do you want to play again? (yes/no): ')
         if play_again != 'yes':
             break
+
 
 # call the main function
 main()
