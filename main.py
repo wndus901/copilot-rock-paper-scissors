@@ -36,3 +36,12 @@ def main():
 
 # call the main function
 main()
+# save the game result to a file
+with open('/workspaces/copilot-rock-paper-scissors/game_results.txt', 'a') as file:
+    file.write(f'User choice: {user_choice}, Computer choice: {computer_choice}\n')
+    if user_choice == computer_choice:
+        file.write('Result: Tie\n')
+    elif computer_choice in winning_conditions[user_choice]:
+        file.write('Result: User wins\n')
+    else:
+        file.write('Result: Computer wins\n')
